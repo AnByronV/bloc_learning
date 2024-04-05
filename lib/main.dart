@@ -1,3 +1,4 @@
+import 'package:bloc_learning/config/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,16 +28,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      routerConfig: appRouter,
+      theme: AppTheme(isDarkmode: false).getTheme(),
+      // home: Scaffold(
+      //   appBar: AppBar(
+      //     title: const Text('Material App Bar'),
+      //   ),
+      //   body: const Center(
+      //     child: Text('Hello World'),
+      //   ),
+      // ),
     );
   }
 }
