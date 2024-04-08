@@ -20,9 +20,14 @@ class BlocsProviders extends StatelessWidget {
         lazy:
             true, // Esta propiedad es opcional, indica que se creará el cubit cuando se necesite; En caso de que sea false se creará al inicio
       ),
-      BlocProvider<RouterSimpleCubit>(create: (_) => getIt<RouterSimpleCubit>()),
+      BlocProvider<RouterSimpleCubit>(
+          create: (_) => getIt<RouterSimpleCubit>()),
       BlocProvider<CounterCubit>(create: (_) => getIt<CounterCubit>()),
       BlocProvider<ThemeCubit>(create: (_) => getIt<ThemeCubit>()),
+      BlocProvider(create: (context) => getIt<GuestsBloc>()),
+      BlocProvider(create: (context) => getIt<PokemonBloc>()),
+      BlocProvider(create: (context) => getIt<GeolocationCubit>()),
+      BlocProvider(create: (context) => getIt<HistoricLocationBloc>()),
     ], child: const MyApp());
   }
 }
