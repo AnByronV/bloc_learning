@@ -16,15 +16,15 @@ flutter_bloc, bloc, equatable, get_it
     - theme
   - data
   - domain
-  - presentation
-    - pages
-        - blocs
-        - models
-        - view
-        - widgets
-        
-
-   
+  - application 
+    - blocs
+    - presentation
+      - pages
+          - blocs
+          - models
+          - view
+          - widgets
+    app.dart
   - main.dart
 
 ```
