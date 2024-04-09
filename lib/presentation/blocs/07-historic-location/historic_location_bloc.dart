@@ -14,6 +14,7 @@ class HistoricLocationBloc extends Bloc<HistoricLocationEvent, HistoricLocationS
 
 
   void onNewUserLocation( (double lat, double lng) location ) {
+    print("im Adding a new location with location: ${location}");
     add( NewLocation( location ) );
   }
 

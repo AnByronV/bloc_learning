@@ -21,7 +21,6 @@ class GeolocationCubit extends Cubit<GeolocationState> {
     if ( permissionGranted == LocationPermission.denied ) {
       permissionGranted = await Geolocator.requestPermission();
     }
-
     emit(
       state.copyWith(
         serviceEnabled   : serviceEnabled,
@@ -35,19 +34,19 @@ class GeolocationCubit extends Cubit<GeolocationState> {
 
 
   Future<void> watchUserLocation() async {
-    
     await checkStatus();
 
     if ( !state.permissionGranted || !state.serviceEnabled ) return;
 
     const locationSettings = LocationSettings(
       accuracy: LocationAccuracy.bestForNavigation,
-      distanceFilter: 15,
+      distanceFilter: 1,
     );
 
     Geolocator.getPositionStream( locationSettings: locationSettings )
       .listen((position) { 
         final newLocation = ( position.latitude, position.longitude );
+        print("in watchUserLocation: $newLocation");
         emit( state.copyWith( location: newLocation ) );
 
         onNewUserLocationCallback?.call(newLocation);

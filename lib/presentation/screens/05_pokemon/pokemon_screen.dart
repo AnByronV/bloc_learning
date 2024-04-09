@@ -12,7 +12,7 @@ class PokemonScreen extends StatefulWidget {
 
 class _PokemonScreenState extends State<PokemonScreen> {
 
-  int pokemonId = 1;
+  int pokemonId = 2;
 
   @override
   Widget build(BuildContext context) {

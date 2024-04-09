@@ -26,8 +26,9 @@ class PokemonBloc extends Bloc<PokemonEvent, PokemonState> {
   
   
   Future<String> fetchPokemonName(int id) async {
-
+    print("I added a new pokemon with id: ${id}");
     if ( state.pokemons.containsKey(id) ) {
+      print("I already have the pokemon with id: ${id}");
       return state.pokemons[id]!;
     }
 
